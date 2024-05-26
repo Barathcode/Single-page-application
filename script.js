@@ -4,6 +4,18 @@ const showElement = (elementToShow='', elementToHide='') => {
     document.getElementById(elementToHide).classList.add('hidden');
 };
 
+//Email validation
+const validateEmail = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+};
+
+// Password validation function (at least 6 characters, one number, and one special character)
+const validatePassword = (password) => {
+const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*/])[a-zA-Z0-9!@#$%^&*/]{6,}$/;
+    return passwordRegex.test(password);
+};
+
 //function to sign up a new user
 const signUp = () => {
     const name = document.getElementById('signup-name').value;
@@ -15,6 +27,17 @@ const signUp = () => {
         alert('All fields are required');
         return;
     }
+
+    if (!validateEmail(email)) {
+        alert('Invalid email address');
+        return;
+    }
+
+    if (!validatePassword(password)) {
+        alert('Password must be at least 6 characters long and include at least one number and one special character');
+        return;
+    }
+
 
     if (password !== confirmPassword) {
         alert('Passwords do not match.');

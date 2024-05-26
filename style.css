@@ -35,11 +35,12 @@ body {
     margin-top: 20px
 }
 
+.hidden {
+    display: none
+}
+
 #dashboard {
     margin-top: 20px
 }
 
 /* Initially setting all the contents as hidden */
-.hidden {
-    display: none
-}
